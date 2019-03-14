@@ -12,7 +12,9 @@ const Tag = ({
   readonly,
   hasDeleteIcon = true
 }) => {
-  const tagText = <Text style={[styles.tagLabel, tagTextStyle]}>{label}</Text>;
+  const tagText = (
+    <Text style={[styles.tagLabel, tagTextStyle]}>{"#" + label}</Text>
+  );
 
   if (readonly) {
     return <View style={[styles.tag, tagContainerStyle]}>{tagText}</View>;
@@ -22,7 +24,7 @@ const Tag = ({
         style={[styles.tag, tagContainerStyle]}
         onPress={onPress}
       >
-        {"#" + tagText}
+        {tagText}
         {hasDeleteIcon && (
           <Ionicons
             size={14}

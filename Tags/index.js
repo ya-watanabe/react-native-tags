@@ -25,10 +25,16 @@ class Tags extends React.Component {
   }
 
   addTag = text => {
+    const trimedText = text.trim();
+    if (!trimedText) {
+      this.setState({ text: "" });
+      return;
+    }
+
     this.setState(
       {
-        tags: [...this.state.tags, text.trim()],
-        text: " "
+        tags: [...this.state.tags, trimedText],
+        text: ""
       },
       () => this.props.onChangeTags && this.props.onChangeTags(this.state.tags)
     );
