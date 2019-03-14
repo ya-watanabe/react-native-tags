@@ -22,7 +22,7 @@ const Tag = ({
         style={[styles.tag, tagContainerStyle]}
         onPress={onPress}
       >
-        {tagText}
+        {"#" + tagText}
         {hasDeleteIcon && (
           <Ionicons
             size={14}
